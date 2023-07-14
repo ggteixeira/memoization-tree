@@ -1,0 +1,16 @@
+body {
+  background-color: #f6f1f1;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Helvetica";
+}
+
+.tree:has(.parent:hover),
+.parent:has(.older:hover),
+.older:has(.younger:hover) {
+  background: transparent !important;
+}
