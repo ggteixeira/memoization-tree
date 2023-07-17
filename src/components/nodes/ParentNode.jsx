@@ -5,7 +5,7 @@ import { OlderChildNode } from "./index.js";
 const ParentNode = () => {
   return (
     <>
-      <Box className="parent" color="#ACB1D6">
+      <Box className="parent" color="#95B8D1">
         <p>I am ParentNode</p>
         <OlderChildNode />
       </Box>

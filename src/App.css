@@ -1,5 +1,5 @@
 body {
-  background-color: #f6f1f1;
+  background-color: #f6f3f4;
 }
 
 #root {
@@ -7,10 +7,11 @@ body {
   margin: 0 auto;
   text-align: center;
   font-family: "Helvetica";
+  color: #355882;
 }
 
 .tree:has(.parent:hover),
 .parent:has(.older:hover),
 .older:has(.younger:hover) {
-  background: transparent !important;
+  background: transparent;
 }

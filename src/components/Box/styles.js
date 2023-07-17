@@ -1,4 +1,12 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+// function blinkingEffect() {
+//   return keyframes`
+//     50% {
+//       opacity: 0;
+//     }
+// `;
+// }
 
 export const BoxContainer = styled.div`
   border: ${(props) => props.color} 10px solid;
@@ -15,5 +23,27 @@ export const BoxContainer = styled.div`
   transition: background-color 0.2s;
   &:hover {
     background: ${(props) => props.color};
+  }
+
+  button {
+    color: #355882;
+    border: solid 1px #355882;
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin: 0 1px;
+    &:hover {
+      color: ${(props) => props.color};
+      transition: 0.3s;
+    }
+    &:active {
+      background: ${(props) => props.color};
+      transition: 0.3s;
+      color: #355882;
+    }
   }
 `;
