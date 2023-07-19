@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const TreeContainer = styled.div`
-  border: dashed 1px green;
-  width: 50rem;
-  height: 50rem;
+  width: auto;
+  height: auto;
   display: flex;
-  // justify-content: space-between;
 `;
 
 export const LeftNode = styled.div`

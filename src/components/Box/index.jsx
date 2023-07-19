@@ -1,28 +1,29 @@
 import PropTypes from "prop-types";
 import * as S from "./styles.js";
-import { useState } from "react";
 
-const Box = ({ color, fill, children, className }) => {
-  const [counter, setCounter] = useState(0);
+const Box = ({ color, children, blink, toggleBlink }) => {
+  const handleBlink = () => {
+    toggleBlink(() => 1);
+  };
 
-  const handleKnock = () => setCounter((counter) => counter + 1);
-  const handleReset = () => setCounter(0);
+  const handleUnblink = () => {
+    toggleBlink(false);
+  };
+
+  setTimeout(() => {
+    if (blink === 1) handleUnblink();
+  }, 2000);
 
   return (
-    <S.BoxContainer
-      key={className}
-      className={className}
-      fill={fill}
-      color={color}
-    >
+    <S.BoxContainer blink={blink ? 1 : 0} color={color}>
       {children}
 
       <S.ButtonsContainer color={color}>
-        <button onClick={handleKnock} type="button" name="oibebe">
-          Knocked {counter} times!
+        <button onClick={handleBlink} type="button">
+          Blink {blink === 1 ? "ON" : "OFF"}
         </button>
 
-        <button onClick={handleReset} type="button" name="oibebe">
+        <button onClick={handleUnblink} type="button">
           Reset
         </button>
       </S.ButtonsContainer>
@@ -32,10 +33,10 @@ const Box = ({ color, fill, children, className }) => {
 
 Box.propTypes = {
   text: PropTypes.string,
-  children: PropTypes.string,
-  fill: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   color: PropTypes.string,
-  className: PropTypes.string,
+  toggleBlink: PropTypes.func,
+  blink: PropTypes.number,
 };
 
 export default Box;

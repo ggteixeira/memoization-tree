@@ -10,8 +10,6 @@ body {
   color: #355882;
 }
 
-.tree:has(.parent:hover),
-.parent:has(.older:hover),
-.older:has(.younger:hover) {
-  background: transparent;
-}
+/* .tree:has(.older:hover, .younger:hover) { */
+/*   background: transparent !important; */
+/* } */
