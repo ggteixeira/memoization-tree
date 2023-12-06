@@ -3,7 +3,7 @@ import Box from "../Box/index.jsx";
 
 const YoungerChildNode = () => {
   return (
-    <Box className={["younger"]} color="#EAC4D5">
+    <Box className="younger" color="#EAC4D5">
       <p>I am YoungerChildNode</p>
     </Box>
   );

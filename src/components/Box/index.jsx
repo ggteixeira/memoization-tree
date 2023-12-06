@@ -1,21 +1,26 @@
 import PropTypes from "prop-types";
 import * as S from "./styles.js";
+import { useCallback, useEffect } from "react";
 
-const Box = ({ color, children, blink, toggleBlink }) => {
+const Box = (treeProps) => {
+  const { color, blink, toggleBlink, children } = treeProps;
+
   const handleBlink = () => {
     toggleBlink(() => 1);
   };
 
-  const handleUnblink = () => {
+  const handleUnblink = useCallback(() => {
     toggleBlink(false);
-  };
+  }, [toggleBlink]);
 
-  setTimeout(() => {
-    if (blink === 1) handleUnblink();
-  }, 2000);
+  useEffect(() => {
+    setTimeout(() => {
+      if (blink === 1) handleUnblink();
+    }, 2000);
+  }, [blink, handleUnblink]);
 
   return (
-    <S.BoxContainer blink={blink ? 1 : 0} color={color}>
+    <S.BoxContainer blink={blink ? 1 : 0} color={`#${color}`}>
       {children}
 
       <S.ButtonsContainer color={color}>

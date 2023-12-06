@@ -42,11 +42,12 @@ export const BoxContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
   button {
     margin: 0 1px;
     &:hover {
       color: ${(props) => props.color};
-      transition: 0.2s;
+      mintransition: 0.2s;
     }
     &:active {
       background-color: ${(props) => props.color};
