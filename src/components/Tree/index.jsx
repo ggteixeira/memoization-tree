@@ -4,26 +4,16 @@ import * as S from "./styles";
 import { useState } from "react";
 
 const Tree = () => {
-  const [blink, setBlink] = useState(0);
-
-  const treeProps = {
-    color: "809BCE",
-    blink: blink,
-    toggleBlink: setBlink,
-  };
+  const [blink, setBlink] = useState(false);
 
   return (
     <>
-      <Box treeProps={treeProps}>
-        <p>I am the Tree </p>
+      <Box color="809BCE" blink={blink} setBlink={setBlink}>
+        <p>I am the Tree</p>
       </Box>
 
       <S.TreeContainer>
-        <OlderChildNode
-          blink={blink}
-          toggleBlink={setBlink}
-          treeColor={treeProps.color}
-        />
+        <OlderChildNode blink={blink} setBlink={setBlink} color="809BCE" />
         <YoungerChildNode blink={blink} className="younger" />
       </S.TreeContainer>
     </>

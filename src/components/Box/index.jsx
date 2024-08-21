@@ -2,30 +2,26 @@ import PropTypes from "prop-types";
 import * as S from "./styles.js";
 import { useCallback, useEffect } from "react";
 
-const Box = (treeProps) => {
-  const { color, blink, toggleBlink, children } = treeProps;
-
-  const handleBlink = () => {
-    toggleBlink(() => 1);
-  };
+const Box = ({ color, blink, setBlink, children }) => {
+  const handleBlink = () => setBlink(true);
 
   const handleUnblink = useCallback(() => {
-    toggleBlink(false);
-  }, [toggleBlink]);
+    setBlink(false);
+  }, [setBlink]);
 
   useEffect(() => {
     setTimeout(() => {
-      if (blink === 1) handleUnblink();
+      if (blink === true) handleUnblink();
     }, 2000);
   }, [blink, handleUnblink]);
 
   return (
-    <S.BoxContainer blink={blink ? 1 : 0} color={`#${color}`}>
+    <S.BoxContainer blink={blink ? true : false} color={`#${color}`}>
       {children}
 
       <S.ButtonsContainer color={color}>
         <button onClick={handleBlink} type="button">
-          Blink {blink === 1 ? "ON" : "OFF"}
+          Blink {blink === true ? "ON" : "OFF"}
         </button>
 
         <button onClick={handleUnblink} type="button">
@@ -40,8 +36,8 @@ Box.propTypes = {
   text: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   color: PropTypes.string,
-  toggleBlink: PropTypes.func,
-  blink: PropTypes.number,
+  setBlink: PropTypes.func,
+  blink: PropTypes.bool,
 };
 
 export default Box;

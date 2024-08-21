@@ -1,21 +1,19 @@
 import PropTypes from "prop-types";
 import Box from "../Box/index.jsx";
 
-const OlderChildNode = ({ treeColor, blink, toggleBlink }) => {
+const OlderChildNode = ({ color, blink, setBlink }) => {
   return (
-    <>
-      <Box blink={blink} toggleBlink={toggleBlink} color={treeColor}>
-        <p>I am OlderChildNode</p>
-      </Box>
-    </>
+    <Box blink={blink} setBlink={setBlink} color={color}>
+      <p>I am OlderChildNode</p>
+    </Box>
   );
 };
 
 OlderChildNode.propTypes = {
   text: PropTypes.string,
   children: PropTypes.string,
-  treeColor: PropTypes.string,
-  toggleBlink: PropTypes.bool,
+  color: PropTypes.string,
+  setBlink: PropTypes.function,
   blink: PropTypes.boolean,
 };
 
